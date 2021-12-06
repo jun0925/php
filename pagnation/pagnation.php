@@ -59,5 +59,19 @@ $result = $dbConnect->query($sql);
         </tr>
     <?php } ?>
     </table>
+    <?php
+    // 페이지 버튼 생성
+    $sql = "SELECT * FROM member";
+    $result = $dbConnect->query($sql);
+
+    // 총 페이지 수
+    $totalRecord = $result->num_rows;
+    
+    // 페이지수
+    $numPage = ceil($totalRecord / $numView);
+
+    for($i = 1; $i <= $numPage; $i++){ ?>
+    <a href="http://localhost/pagnation/pagnation.php?page=<?=$i?>"><?=$i?></a>
+    <?php } ?>
 </body>
 </html>
