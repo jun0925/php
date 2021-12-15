@@ -1,0 +1,6 @@
+2021-12-15 22:53:06 - Error [512], calcDivision(): The divisor cannot be zero in C:\Bitnami\wampstack-7.4.16-0\apache2\htdocs\php\error_handling\ex3.php on line 10, Variables:Array
+(
+    [dividend] => 10
+    [divisor] => 0
+)
+
