@@ -11,8 +11,8 @@
  * 그런 다음 이 SQL 쿼리를 PHP mysqli_query() 함수에 전달하여 실행하여 최종적으로 테이블을 생성하겠습니다.
  */
 
-$method = "procedural";
-// $method = "object_oriented";
+// $method = "procedural";
+$method = "object_oriented";
 // $method = "PDO";
 
 // Attempt create table query execution
@@ -37,6 +37,13 @@ switch($method){
         break;
     case "object_oriented":
         require_once "object_oriented.php";
+        if($mysqli->query($sql) === true){
+            echo "Table created successfully.";
+        }else{
+            echo "ERROR: Could not able to execute $sql . " . $mysqli->error;
+        }
+        // Close connection
+        $mysqli->close();
         break;
     case "PDO":
         require_once "pdo.php";

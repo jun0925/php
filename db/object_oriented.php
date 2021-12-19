@@ -3,10 +3,10 @@
 $hostname = "127.0.0.1";
 $username = "root";
 $password = "111111";
-// $database = "demo";
+$database = "demo";
 
-$mysqli = new mysqli($hostname, $username, $password);
-// $mysqli = new mysqli($hostname, $username, $password, $database);
+// $mysqli = new mysqli($hostname, $username, $password);
+$mysqli = new mysqli($hostname, $username, $password, $database);
 
 // Check connection
 if($mysqli === false){
