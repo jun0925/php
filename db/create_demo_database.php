@@ -12,9 +12,9 @@
  * 다음 예시에서는 demo라는 데이터 베이스를 생성합니다. 
  */
 
-$method = "procedural";
+// $method = "procedural";
 // $method = "object_oriented";
-// $method = "PDO";
+$method = "PDO";
 
 // demo 데이터 베이스 만들기
 $sql = "CREATE DATABASE demo";
@@ -27,7 +27,6 @@ switch($method){
         }else{
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
-
         // Close connection
         mysqli_close($link);
         break;
@@ -42,6 +41,15 @@ switch($method){
         $mysqli->close();
         break;
     case "PDO":
+        require_once "pdo.php";
+        try{
+            $pdo->exec($sql);
+            echo "Database created successfully";
+        }catch(PDOException $e){
+            die("ERROR: Colud not able to execute $sql. " . $e->getMessage());
+        }
+        // Close connection
+        unset($pdo);
         break;
 }
 ?>
