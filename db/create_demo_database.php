@@ -16,17 +16,30 @@ $method = "procedural";
 // $method = "object_oriented";
 // $method = "PDO";
 
+// demo 데이터 베이스 만들기
+$sql = "CREATE DATABASE demo";
+
 switch($method){
     case "procedural":
         require_once "procedural.php";
-        $sql = "CREATE DATABASE demo";
         if(mysqli_query($link, $sql)){
             echo "Database created successfully";
         }else{
-            echo "ERROR: Could not able to execute $sql . " . mysqli_error($link);
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
+
+        // Close connection
+        mysqli_close($link);
         break;
     case "object_oriented":
+        require_once "object_oriented.php";
+        if($mysqli->query($sql) === true){
+            echo "Database created successfully";
+        }else{
+            echo "ERROR: Colud not able to execute $sql. " . $mysqli->error;
+        }
+        // Close connection
+        $mysqli->close();
         break;
     case "PDO":
         break;
