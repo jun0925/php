@@ -4,8 +4,9 @@
 $hostname = "127.0.0.1";
 $username = "root";
 $password = "111111";
+$database = "demo";
 
-$link = mysqli_connect($hostname, $username, $password);
+$link = mysqli_connect($hostname, $username, $password, $database);
 
 // Check connection
 if($link === false){
