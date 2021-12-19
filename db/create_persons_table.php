@@ -12,8 +12,8 @@
  */
 
 // $method = "procedural";
-$method = "object_oriented";
-// $method = "PDO";
+// $method = "object_oriented";
+$method = "PDO";
 
 // Attempt create table query execution
 // persons 테이블 만들기
@@ -30,7 +30,7 @@ switch($method){
         if(mysqli_query($link, $sql)){
             echo "Table created successfully.";
         }else{
-            echo "ERROR: Could not able to execute $sql . " . mysqli_error($link);
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
         // Close connection
         mysqli_close($link);
@@ -40,13 +40,20 @@ switch($method){
         if($mysqli->query($sql) === true){
             echo "Table created successfully.";
         }else{
-            echo "ERROR: Could not able to execute $sql . " . $mysqli->error;
+            echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
         }
         // Close connection
         $mysqli->close();
         break;
     case "PDO":
         require_once "pdo.php";
+        try{
+            $pdo->exec($sql);
+            echo "Table created successfully.";
+        }catch(PDOException $e){
+            die("ERROR: Colud not able to execute $sql. " . $e->getMessage());
+        }
+        unset($pdo);
         break;
 }
 ?>

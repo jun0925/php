@@ -3,11 +3,11 @@
 $hostname = "127.0.0.1";
 $username = "root";
 $password = "111111";
-// $database = "demo";
+$database = "demo";
 
 try{
-    $pdo = new PDO("mysql:host={$hostname}", $username, $password);
-    // $pdo = new PDO("mysql:host={$hostname};dbname={$database}", $username, $password);
+    // $pdo = new PDO("mysql:host={$hostname}", $username, $password);
+    $pdo = new PDO("mysql:host={$hostname};dbname={$database}", $username, $password);
 
     // Set the PDO error mode to exception
     // PDO::ATTR_ERRMODE 속성을 설정하면 PDO::ERRMODE_EXCEPTION 데이터 베이스 오류가 발생 할 떄마다 예외가 발생하도록 PDO에 지시합니다.
