@@ -13,10 +13,10 @@ if($link === false){
 }
 
 // Print host infomation
-echo "Connect Successfully. Host info : " . mysqli_get_host_info($link);
+echo "Connect Successfully. Host info : " . mysqli_get_host_info($link) . "<br />";
 
 // 스크립트 실행이 종료되는 즉시 MySQL 데이터베이스 서버에 대한 연결이 자동으로 닫힙니다.
 // 그러나 더 일찍 닫고 싶다면 PHP mysqli_close() 함수를 호출하기만 하면 됩니다.
 // Close connection
-mysqli_close($link)
+// mysqli_close($link);
 ?>
