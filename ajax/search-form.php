@@ -49,9 +49,8 @@
                 var inputVal = $(this).val();
                 var resultDropdown = $(this).siblings(".result");
                 if(inputVal.length){
-                    $.get("backend-search.php", {term: inputVal}).done(function(data){
+                    $.get("backend-search-pdo.php", {term: inputVal}).done(function(data){
                         // Display the returned data in browse
-                        console.log(data);
                         resultDropdown.html(data);
                     })
                 }else{
